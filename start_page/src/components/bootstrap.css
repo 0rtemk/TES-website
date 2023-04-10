@@ -1,0 +1,94 @@
+*{
+  margin: 0 auto;
+}
+
+nav{
+  background: rgba(46, 67, 76, 0.6);
+  height: 70px;
+  text-align: center;
+}
+
+.container{
+  background: rgb(255, 255, 255);
+}
+
+body{
+  background-color: rgb(22, 131, 131);
+}
+
+.header{
+  height: 1076px;
+  background-image: url("../img/header.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.title-header{
+  background: rgba(0, 0, 0, 0.5);
+  height: 299px;
+  padding-top: 81px;
+  padding-bottom: 61px;
+}
+
+.news{
+  background: #B3C873;
+  height: 645px;
+  padding-top: 55px;
+}
+
+.n-card{
+  margin-top: 48px;
+  height: 424px;
+  background: #D9D9D9;
+}
+
+.e-card{
+  height: 637px;
+  background: #D9D9D9;
+}
+
+.e-card-body{
+  width: 100%;
+  height: 275px;
+  background-color: #65675e;
+  margin-top: 33px;
+}
+
+.event{
+  height: 779px;
+  padding-top: 28px;
+}
+
+.mission{
+  background: #B3C873;
+  height: 458px;
+  padding-top: 29px;
+}
+
+.mission-check{
+  width: 870px;
+}
+
+.result{
+  padding-top: 25px;
+}
+
+.result-check{
+  padding-top: 37px;
+  width: 740px;
+}
+
+.teachers{
+  padding-top: 25px;
+  background: #B3C873;
+  height: 1235px;
+}
+
+.teachers-check{
+  padding-top: 43px;
+}
+
+.card{
+  width: 400px;
+  background: #B3C873;
+}
