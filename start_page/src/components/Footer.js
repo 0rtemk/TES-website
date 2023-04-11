@@ -1,11 +1,11 @@
 import React from "react"
 
-class Footer extends React.Component {
-
-    render() {
-        return (<div>
-            </div>)
-  }
+const Footer = () => {
+    return (
+        <>
+            {/* Where is the footer? */}
+        </>
+    )
 }
 
 export default Footer
