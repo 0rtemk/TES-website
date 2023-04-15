@@ -9,7 +9,7 @@ import fs_5 from "../../img/forStudents/fs_5.png"
 const ForStudents = () => {
     return (
         <>
-            <section name="ForStudents" className="py-5">
+            <section name="ForStudents" id="ForStudents" className="py-5">
                 <div className="fs-1"><strong>Что получает участник</strong></div>
                 <div className="mission padding-section">
                     <div className="section-check text-start">

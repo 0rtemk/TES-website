@@ -1,3 +1,8 @@
+* {
+  max-width: 100%;
+  scroll-behavior: smooth;
+}
+
 .nav-bg {
   background: rgba(46, 67, 76, 0.6);
   height: 75px;
@@ -11,6 +16,31 @@
   margin-right: 0px;
   background: rgba(46, 67, 76, 0.6);
   text-align: start;
+}
+
+.nav-collapsed-items #auth {
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.hr {
+  max-width: 100%;
+  height: 2px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.nav-collapsed-auth {
+  margin-left: auto;
+  margin-right: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: rgba(131, 149, 156, 0.6);
+  border: 2px rgb(211, 211, 211);
+  border-style: groove;
+  border-radius: 5px;
 }
 
 .collapsing {
@@ -29,8 +59,9 @@
 .title-header {
   background: rgba(0, 0, 0, 0.5);
   height: 300px;
-  padding-top: 80px;
-  padding-bottom: 60px;
+  margin-top: 400px;
+  padding-top: 5%;
+  align-items: center;
 }
 
 .scroll-button {
@@ -85,24 +116,24 @@
 .card {
   width: 400px;
   align-items: center;
-  border: none!important;
-  background: #B3C873!important;
+  border: none !important;
+  background: #B3C873 !important;
 }
 
 .padding-section {
   padding-top: 3rem;
 }
 
-footer{
+footer {
   background: #c7c6c6;
 }
 
-.pat{
+.pat {
   width: 200px;
   align-items: center;
-  border: none!important;
+  border: none !important;
 }
 
-.nav-item :hover{
+.nav-item :hover {
   opacity: 0.5;
 }

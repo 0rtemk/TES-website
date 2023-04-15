@@ -13,7 +13,7 @@ import Ribachuk_MA from "../../img/Teachers/Ribachuk_MA.png"
 const Teachers = () => {
     return (
         <>
-            <section name="Teachers" className="bg-green py-5">
+            <section name="Teachers" id="Teachers" className="bg-green py-5">
                 <div className="fs-1"><strong>Преподаватели</strong></div>
                 <div className="container bg-green padding-section">
                     <div className="row">

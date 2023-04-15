@@ -5,7 +5,7 @@ import checked from "../../img/checked.png"
 const Mission = () => {
     return (
         <>
-            <section name="Mission" className="bg-green py-5">
+            <section name="Mission" id="Mission" className="bg-green py-5">
                 <div className="fs-1"><strong>Миссия школы</strong></div>
                 <div className="fs-2 py-2">Подготовка технолидеров</div>
                 <div className="mission padding-section">
