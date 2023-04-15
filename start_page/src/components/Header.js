@@ -27,7 +27,7 @@ const Header = () => {
 
             <div className="collapse navbar-collapse" id="navbar">
               <ul 
-                className={!isActive ? "nav-collapsed-items navbar-nav" : "navbar-nav"} 
+                className={!isActive ? "nav-collapsed-items navbar-nav col-11" : "navbar-nav col-11"} 
                 id="navigation">
                 <li className="nav-item px-3">
                   <a href="/#" className="nav-link text-white text-decoration-none fs-4">Новости</a>
@@ -45,6 +45,9 @@ const Header = () => {
                   <a href="/#" className="nav-link text-white text-decoration-none fs-4">Преподаватели</a>
                 </li>
               </ul>
+              <div className="nav-item col-1 px-3">
+                  <a href="/#" className="nav-link text-black text-decoration-none fs-4">Войти</a>
+              </div>
             </div>
           </div>
         </nav>

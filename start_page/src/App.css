@@ -92,3 +92,17 @@
 .padding-section {
   padding-top: 3rem;
 }
+
+footer{
+  background: #c7c6c6;
+}
+
+.pat{
+  width: 200px;
+  align-items: center;
+  border: none!important;
+}
+
+.nav-item :hover{
+  opacity: 0.5;
+}
