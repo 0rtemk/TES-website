@@ -1,18 +1,21 @@
 import React from "react"
-import Header from "./components/Header"
-import Main from "./components/Main"
-import Footer from "./components/Footer"
-import ScrollButton from "./components/ScrollButton"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Main from "./components/Main";
+import Auth from "./components/Auth";
+
 
 import './App.css'
 
 const App = () => {
   return (
     <>
-      <Header />
-      <Main />
-      <ScrollButton />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" index element = { <Main /> } />
+          <Route path="/auth" index element = {<Auth />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

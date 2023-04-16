@@ -1,6 +1,7 @@
 import React, { useState } from "react"
-import logo from "../img/logo.png"
+import logo from "../../img/logo.png"
 import { GrMenu } from "react-icons/gr"
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isActive, setActive] = useState("false")
@@ -48,7 +49,9 @@ const Header = () => {
 
               <div className={!isActive ? "nav-collapsed-items px-2" : "nav-collapsed-auth"}>
                 <hr className={!isActive ? "nav-collapsed-items hr" : "d-none"}></hr>
-                <a href="/#" className="btn-sm text-black text-decoration-none fs-4" id="auth">Войти</a>
+                <Link to="/auth" style={{ textDecoration: "none", color: "inherit" }}>
+                  <div className="btn-sm text-black text-decoration-none fs-4" id="auth">Войти</div>
+                </Link>
               </div>
             </div>
           </div>

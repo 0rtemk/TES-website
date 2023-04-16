@@ -137,3 +137,46 @@ footer {
 .nav-item :hover {
   opacity: 0.5;
 }
+
+.auth-bg {
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.auth-card {
+  background-color: rgba(179, 200, 115, 0.85);
+  position: absolute;
+  top: 10%;
+  border-radius: 15px;
+}
+
+@media (max-width: 767px) {
+  .auth-bg {
+    background-image: url("img/auth_phone.png");
+  }
+  .auth-card {
+    width: 80%;
+    left: 10%;
+  }
+}
+
+@media (min-width:767px) {
+  .auth-bg {
+    background-image: url("img/auth.png");
+  }
+  .auth-card {
+    width: 60%;
+    left: 20%;
+  }
+}
+
+.btn-auth {
+  -webkit-text-fill-color: rgb(179, 200, 115);
+  font-size: x-large;
+  background: rgb(28, 36, 75);
+  box-shadow: 10px 10px 4px rgba(85, 85, 85, 0.25);
+  border-radius: 49px;
+}

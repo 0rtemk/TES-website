@@ -1,13 +1,13 @@
 import React from "react"
 
-import Gyd from "../img/Partners/GYD.png"
-import Msk from "../img/Partners/MSK.png"
-import Nti from "../img/Partners/NTI.png"
-import Oe3 from "../img/Partners/OE3.png"
-import Oe3_Cg from "../img/Partners/OE3_CG.png"
-import Oiyai from "../img/Partners/OIYaI.png"
-import Skolk from "../img/Partners/Skolkovo.png"
-import Vk from "../img/VK.png"
+import Gyd from "../../img/Partners/GYD.png"
+import Msk from "../../img/Partners/MSK.png"
+import Nti from "../../img/Partners/NTI.png"
+import Oe3 from "../../img/Partners/OE3.png"
+import Oe3_Cg from "../../img/Partners/OE3_CG.png"
+import Oiyai from "../../img/Partners/OIYaI.png"
+import Skolk from "../../img/Partners/Skolkovo.png"
+import Vk from "../../img/VK.png"
 
 const Footer = () => {
 
