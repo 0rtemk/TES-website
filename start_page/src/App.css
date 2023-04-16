@@ -129,9 +129,9 @@ footer {
 }
 
 .pat {
-  width: 200px;
+  max-width: 200px;
+  min-width: 30px;
   align-items: center;
-  border: none !important;
 }
 
 .nav-item :hover {
