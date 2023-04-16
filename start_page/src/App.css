@@ -103,14 +103,17 @@
 
 .w-80 {
   max-width: 80px;
+  min-width: 30px;
 }
 
 .w-60 {
-  max-width: 60px;
+  max-width: 55px;
+  min-width: 15px;
 }
 
 .w-40 {
   max-width: 40px;
+  min-width: 20px;
 }
 
 .card {
