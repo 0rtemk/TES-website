@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 const tasks = require('./routes/authRoutes')
-const mongoose = require('mongoose')
-//const connectDB = require('./db/connect')
+//const mongoose = require('mongoose')
+const connectDB = require('./db/connect')
 const authRouter = require('./routes/authRoutes')
 const port = process.env.PORT || 5000
 require('dotenv').config()
@@ -12,9 +12,7 @@ app.use('/auth', authRouter)
 
 const start = async () => {
   try {
-    await mongoose.connect(
-      `mongodb+srv://admin:wwwwww@stp.oktmasz.mongodb.net/?retryWrites=true&w=majority`
-    )
+    await connectDB(process.env.MONGO_URI)
     app.listen(port, console.log(`server is listening port ${port}...,`))
   } catch (error) {
     console.log(error)
