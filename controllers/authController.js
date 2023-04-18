@@ -1,14 +1,14 @@
-const User = require('../models/User2')
+const User = require('../models/User')
 const Role = require('../models/Role')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { validationResult } = require('express-validator')
 const { secret } = require('../config')
 
-const generateAccessToken = (id, roles) => {
+const generateAccessToken = (id, role_on_site) => {
   const payload = {
     id,
-    roles,
+    role_on_site,
   }
   return jwt.sign(payload, secret, { expiresIn: '24h' })
 }
@@ -22,8 +22,8 @@ class authController {
           .status(400)
           .json({ message: 'Ошибка при регистрации', errors })
       }
-      const { username, password } = req.body
-      const candidate = await User.findOne({ username })
+      const { login, password } = req.body
+      const candidate = await User.findOne({ login })
       if (candidate) {
         return res
           .status(400)
@@ -33,9 +33,9 @@ class authController {
       //const userRole = await Role.findOne({ value: 'USER' })
       const userRole = await Role.findOne({ value: 'USER' })
       const user = new User({
-        username,
+        login,
         password: hashPassword,
-        roles: [userRole.value],
+        role_on_site: [userRole.value],
       })
       await user.save()
       return res.json({ message: 'Пользователь успешно зарегистрирован' })
@@ -46,12 +46,12 @@ class authController {
   }
   async login(req, res) {
     try {
-      const { username, password } = req.body
-      const user = await User.findOne({ username })
+      const { login, password } = req.body
+      const user = await User.findOne({ login })
       if (!user) {
         return res
           .status(400)
-          .json({ message: `Пользователь ${username} не найден` })
+          .json({ message: `Пользователь ${login} не найден` })
       }
       const validPassword = bcrypt.compareSync(password, user.password)
       if (!validPassword) {

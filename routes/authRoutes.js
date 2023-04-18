@@ -8,7 +8,7 @@ const roleMiddleware = require('../middleware/roleMiddleware')
 router.post(
   '/registration',
   [
-    check('username', 'Имя пользователя не может быть пустым').notEmpty(),
+    check('login', 'Имя пользователя не может быть пустым').notEmpty(),
     check(
       'password',
       'Пароль должен быть больше 4 и меньше 10 символов'
@@ -18,6 +18,12 @@ router.post(
 )
 router.post('/login', controller.login)
 //router.get('/users', authMiddleware, controller.getUsers)
-router.get('/users', roleMiddleware(['USER', 'ADMIN']), controller.getUsers)
+router.get(
+  '/users',
+
+  // С ролями не работает, файл roleMiddleware некоректно работает
+  //roleMiddleware(['USER', 'ADMIN']),
+  controller.getUsers
+)
 
 module.exports = router
