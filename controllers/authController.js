@@ -58,7 +58,8 @@ class authController {
         return res.status(400).json({ message: `Введён неверный пароль` })
       }
       const token = generateAccessToken(user._id, user.roles)
-      return res.json({ token })
+      const role = user.role_on_site
+      return res.json({ token, role })
     } catch (error) {
       console.log(error)
       res.status(400).json({ message: 'Login error' })
