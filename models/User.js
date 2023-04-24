@@ -6,7 +6,7 @@ const UserSchema = new Schema({
   login: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   role_in_project: String,
-  role_on_site: [{ type: String, ref: 'Role' }],
+  role_on_site: { type: String, default: 'USER' },
   fullname: { type: String, required: false },
   date_birth: { type: Date, required: false },
   phone: { type: Number, required: false },

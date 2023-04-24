@@ -30,12 +30,12 @@ class authController {
           .json({ message: 'Пользователь с таким логином уже существует' })
       }
       const hashPassword = bcrypt.hashSync(password, 7)
-      //const userRole = await Role.findOne({ value: 'USER' })
-      const userRole = await Role.findOne({ value: 'USER' })
+      //const userRole = await Role.findOne({ role_on_site: 'USER' })
+      //const userRole = 'USER'
       const user = new User({
         login,
         password: hashPassword,
-        role_on_site: [userRole.value],
+        //  role_on_site: userRole,
       })
       await user.save()
       return res.json({ message: 'Пользователь успешно зарегистрирован' })
@@ -57,9 +57,9 @@ class authController {
       if (!validPassword) {
         return res.status(400).json({ message: `Введён неверный пароль` })
       }
-      const token = generateAccessToken(user._id, user.roles)
-      const role = user.role_on_site
-      return res.json({ token, role })
+      const token = generateAccessToken(user._id, user.role_on_site)
+      const userRole = user.role_on_site
+      return res.json({ token, userRole })
     } catch (error) {
       console.log(error)
       res.status(400).json({ message: 'Login error' })
