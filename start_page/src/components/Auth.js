@@ -1,8 +1,33 @@
-import React from "react";
+import React, {useState} from "react";
 import { BiX } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import axios from "axios"
 
 const Auth = () => {
+    async function getData() {
+        const res = await axios.post("http://localhost:3000/auth/login", {login: log, password: pass});
+        if (res.data.accessToken){
+            console.log(res.data)
+            localStorage.setItem("token", JSON.stringify(res.data));
+        }
+    }
+
+    
+    const [log, setLogin] = useState('');
+    const [pass, setPassword] = useState('');
+    
+    const handleSubmit = event => {
+        getData(log, pass);
+
+        console.log('Oke');
+        event.preventDefault(); //prevent page refresh
+  
+        //clear all input values in the form
+        setLogin('');
+        setPassword('');
+    };
+
+    
     return (
         <>
             <div className="auth-bg">
@@ -12,18 +37,18 @@ const Auth = () => {
                             <BiX />
                         </Link>
                     </div>
-                    <div className="container">
+                    <form onSubmit={handleSubmit} className="container">
                         <div className="d-flex justify-content-center align-items-center">
                             <div className="col-12 col-md-8">
                                 <div className="mb-md-5">
                                     <div className="fw-bold text-white text-center text-decoration-underline fs-2 pb-5">Вход в систему</div>
                                     <div className="form-outline form-white mb-4">
                                         <label className="form-label fs-5 text-white" htmlFor="typeEmailX">Логин</label>
-                                        <input type="email" id="typeEmailX" className="form-control form-control-lg" placeholder="Введите логин" />
+                                        <input type="text" id="typeEmailX" onChange={event => setLogin(event.target.value)} value={log} className="form-control form-control-lg" placeholder="Введите логин" />
                                     </div>
                                     <div className="form-outline form-white mb-4">
                                         <label className="form-label fs-5 text-white" htmlFor="typePasswordX">Пароль</label>
-                                        <input type="password" id="typePasswordX" className="form-control form-control-lg" placeholder="Введите пароль" />
+                                        <input type="password" id="typePasswordX" onChange={event => setPassword(event.target.value)} value={pass} className="form-control form-control-lg" placeholder="Введите пароль" />
                                     </div>
                                     <div className="form-check pb-5">
                                         <input type="checkbox" className="form-check-input" id="remrmberMe" />
@@ -36,7 +61,7 @@ const Auth = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
 
