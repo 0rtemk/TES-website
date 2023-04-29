@@ -1,28 +1,31 @@
 import React, {useState} from "react";
 import { BiX } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 
 const Auth = () => {
     async function getData() {
-        const res = await axios.post("http://localhost:3000/auth/login", {login: log, password: pass});
-        if (res.data.accessToken){
-            console.log(res.data)
-            localStorage.setItem("token", JSON.stringify(res.data));
-        }
+        await axios.post("auth/login", {login: log, password: pass})
+        .then(response => {
+            localStorage.setItem("userData", JSON.stringify(response.data))
+            navigate('/') //replace this later, navifate to student LK
+        })
+        .catch(error => {
+            setErrorMessage(error.response.data.message)
+        })
     }
 
     
     const [log, setLogin] = useState('');
     const [pass, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
     
-    const handleSubmit = event => {
-        getData(log, pass);
+    async function handleSubmit (event) {
+        event.preventDefault();
+        setErrorMessage('')
+        await getData(log, pass);
 
-        console.log('Oke');
-        event.preventDefault(); //prevent page refresh
-  
-        //clear all input values in the form
         setLogin('');
         setPassword('');
     };
@@ -54,6 +57,7 @@ const Auth = () => {
                                         <input type="checkbox" className="form-check-input" id="remrmberMe" />
                                         <label className="form-check-label text-white fs-5" htmlFor="remrmberMe">запомнить меня</label>
                                     </div>
+                                    <div className="text-center text-danger mb-2">{errorMessage}</div>
                                     <div className="d-flex justify-content-center align-items-center">
                                         <button className="btn-auth px-5" type="submit">Войти</button>
                                     </div>
