@@ -3,11 +3,14 @@ import { BiX } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 
+import { setRole } from '../ability/caslAbility';
+
 const Auth = () => {
     async function getData() {
         await axios.post("auth/login", {login: log, password: pass})
         .then(response => {
-            localStorage.setItem("userData", JSON.stringify(response.data))
+            localStorage.setItem("userToken", JSON.stringify(response.data.token))
+            localStorage.setItem("userRole", JSON.stringify(response.data.userRole).replace(/["']/g, "").toLocaleLowerCase())
             navigate('/') //replace this later, navifate to student LK
         })
         .catch(error => {
@@ -15,7 +18,6 @@ const Auth = () => {
         })
     }
 
-    
     const [log, setLogin] = useState('');
     const [pass, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
