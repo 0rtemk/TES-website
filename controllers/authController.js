@@ -22,7 +22,11 @@ class authController {
           .status(400)
           .json({ message: 'Ошибка при регистрации', errors })
       }
-      const { login, password } = req.body
+      const {
+        login,
+        password,
+        //fullname, phone, email, projects
+      } = req.body
       const candidate = await User.findOne({ login })
       if (candidate) {
         return res
@@ -35,6 +39,10 @@ class authController {
       const user = new User({
         login,
         password: hashPassword,
+        // fullname,
+        // phone,
+        // email,
+        // projects,
         //  role_on_site: userRole,
       })
       await user.save()
@@ -58,8 +66,12 @@ class authController {
         return res.status(400).json({ message: `Введён неверный пароль` })
       }
       const token = generateAccessToken(user._id, user.role_on_site)
-      const userRole = user.role_on_site
-      return res.json({ token, userRole })
+      const role = user.role_on_site
+      const fullname = user.fullname
+      const phone = user.phone
+      const email = user.email
+      const projects = user.projects
+      return res.json({ token, role, login, fullname, phone, email, projects })
     } catch (error) {
       console.log(error)
       res.status(400).json({ message: 'Login error' })

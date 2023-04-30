@@ -8,7 +8,7 @@ const UserSchema = new Schema({
   role_in_project: String,
   role_on_site: { type: String, default: 'USER' },
   fullname: { type: String, required: false },
-  date_birth: { type: Date, required: false },
+  date_birth: { type: Date, required: false, default: Date.now() },
   phone: { type: Number, required: false },
   email: { type: String, required: false },
   projects: Array,
