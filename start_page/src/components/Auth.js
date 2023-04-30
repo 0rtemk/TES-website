@@ -1,29 +1,31 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { BiX } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 
-import { setRole } from '../ability/caslAbility';
-
 const Auth = () => {
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (localStorage.getItem("userRole")) return navigate('/');
+    }, [navigate]);
+
     async function getData() {
-        await axios.post("auth/login", {login: log, password: pass})
-        .then(response => {
-            localStorage.setItem("userToken", JSON.stringify(response.data.token))
-            localStorage.setItem("userRole", JSON.stringify(response.data.userRole).replace(/["']/g, "").toLocaleLowerCase())
-            navigate('/') //replace this later, navifate to student LK
-        })
-        .catch(error => {
-            setErrorMessage(error.response.data.message)
-        })
+        await axios.post("auth/login", { login: log, password: pass })
+            .then(response => {
+                localStorage.setItem("userToken", JSON.stringify(response.data.token))
+                localStorage.setItem("userRole", JSON.stringify(response.data.userRole).replace(/["']/g, "").toLocaleLowerCase())
+                navigate('/') //replace this later, navifate to student LK
+            })
+            .catch(error => {
+                setErrorMessage(error.response.data.message)
+            })
     }
 
     const [log, setLogin] = useState('');
     const [pass, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const navigate = useNavigate();
-    
-    async function handleSubmit (event) {
+
+    async function handleSubmit(event) {
         event.preventDefault();
         setErrorMessage('')
         await getData(log, pass);
@@ -32,13 +34,13 @@ const Auth = () => {
         setPassword('');
     };
 
-    
+
     return (
         <>
             <div className="auth-bg">
                 <div className="auth-card">
                     <div className="d-flex justify-content-end fs-1 mx-2">
-                        <Link to="/" style={{textDecoration: "none", color: 'rgba(28, 36, 75, 0.6)'}}>
+                        <Link to="/" style={{ textDecoration: "none", color: 'rgba(28, 36, 75, 0.6)' }}>
                             <BiX />
                         </Link>
                     </div>

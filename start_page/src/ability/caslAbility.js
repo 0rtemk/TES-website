@@ -20,9 +20,3 @@ export const buildAbilityFor = (role) => {
     console.log(role)
     return new Ability(defineRulesFor(role));
 };
-
-export let ability = buildAbilityFor('visitor')
-
-export const setRole = (role) => {
-    ability = buildAbilityFor(role)
-}

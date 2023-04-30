@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 
 import Can from "../../ability/can";
 import CaslContext from '../../ability/caslContext';
-import { ability, setRole } from '../../ability/caslAbility';
+import { buildAbilityFor } from '../../ability/caslAbility';
 
 const Header = () => {
   const [isActive, setActive] = useState("false")
-  if (localStorage.getItem('userRole')) {
-    setRole(localStorage.getItem('userRole'))
-  }
+  
+  let ability
+  if (localStorage.getItem('userRole')) ability = buildAbilityFor(localStorage.getItem('userRole'))
+  else ability = buildAbilityFor('visitor')
 
   const handleToggle = () => {
     setActive(!isActive)
