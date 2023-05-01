@@ -4,6 +4,7 @@ const tasks = require('./routes/authRoutes')
 const connectDB = require('./db/connect')
 const authRouter = require('./routes/authRoutes')
 const newsRouter = require('./routes/newsRoutes')
+const eventRouter = require('./routes/EventRoutes')
 
 const port = process.env.PORT || 5000
 const cors = require('cors')
@@ -19,6 +20,7 @@ app.use(
 
 app.use('/auth', authRouter)
 app.use('/news', newsRouter)
+app.use('/events', eventRouter)
 
 const start = async () => {
   try {
