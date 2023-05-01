@@ -53,7 +53,7 @@ class EventsController {
           res.status(500).json({ msg: error })
         }
       }
-      async deletEvent(req, res) {
+      async deleteEvent(req, res) {
         try {
           const { event_name } = req.body
           const event = await Event.findOneAndDelete({ event_name: event_name })
