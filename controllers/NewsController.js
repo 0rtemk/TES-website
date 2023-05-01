@@ -43,7 +43,6 @@ class NewsController {
       }
 
       res.status(200).json({ news })
-      res.status(200).json({ id: news_name, data: req.body })
     } catch (error) {
       res.status(500).json({ msg: error })
     }
