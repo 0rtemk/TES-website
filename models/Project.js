@@ -31,5 +31,8 @@ const ProjectSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    project_rep: String
+    project_rep: String,
+    project_teams: [{type: mongoose.Schema.Types.ObjectId, ref: 'Team'}],
+    project_imageURL:String
+
 });
