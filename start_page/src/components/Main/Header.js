@@ -7,6 +7,7 @@ import Can from "../../ability/can";
 import CaslContext from '../../ability/caslContext';
 import { buildAbilityFor } from '../../ability/caslAbility';
 
+
 const Header = () => {
   const [isActive, setActive] = useState("false")
   
@@ -17,7 +18,7 @@ const Header = () => {
   const handleToggle = () => {
     setActive(!isActive)
   }
-
+  
   return (
     <>
       <CaslContext.Provider value={ability}>
@@ -43,7 +44,11 @@ const Header = () => {
                     <a href="/#" className="nav-link text-white text-decoration-none fs-4">Новости</a>
                   </li>
                   <li className="nav-item px-2">
-                    <a href="/#" className="nav-link text-white text-decoration-none fs-4">Мероприятия</a>
+                    <div className="nav-link">
+                      <Link to="/event" style={{ textDecoration: "none"}}>
+                        <div className="btn-sm text-white text-decoration-none fs-4">Мероприятия</div>
+                      </Link>
+                    </div>
                   </li>
                   <li className="nav-item px-2">
                     <a href="#Mission" className="nav-link text-white text-decoration-none fs-4">Миссия школы</a>
