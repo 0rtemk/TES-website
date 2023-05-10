@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import {AiOutlinePicture} from "react-icons/ai"
+import React, { } from 'react';
 
 const AddEvent = () => {
 

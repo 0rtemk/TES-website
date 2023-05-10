@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, {  } from 'react';
 import { Link } from "react-router-dom";
 
-const CreateButton = () => {
+const CreateButtonEvent = () => {
     
     return (
         <> 
@@ -14,4 +14,4 @@ const CreateButton = () => {
     );
 }
 
-export default CreateButton;
+export default CreateButtonEvent;

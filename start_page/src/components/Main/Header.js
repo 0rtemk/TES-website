@@ -41,11 +41,15 @@ const Header = () => {
                   className={!isActive ? "nav-collapsed-items navbar-nav" : "navbar-nav col-md-auto"}
                   id="navigation">
                   <li className="nav-item px-2">
-                    <a href="/#" className="nav-link text-white text-decoration-none fs-4">Новости</a>
+                    <div className="nav-link">
+                        <Link to="/news" style={{ textDecoration: "none"}}>
+                          <div className="btn-sm text-white text-decoration-none fs-4">Новости</div>
+                        </Link>
+                    </div>
                   </li>
                   <li className="nav-item px-2">
                     <div className="nav-link">
-                      <Link to="/event" style={{ textDecoration: "none"}}>
+                      <Link to="/events" style={{ textDecoration: "none"}}>
                         <div className="btn-sm text-white text-decoration-none fs-4">Мероприятия</div>
                       </Link>
                     </div>

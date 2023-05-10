@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import CreateButton from "./Event/CreateButton";
-import Modal from "./Event/Modal";
+import CreateButtonEvent from "./Events/CreateButtonEvent";
+import Modal from "./Events/Modal";
 
-const Event = () => {
+const Events = () => {
 
     const [modalActive, setModalActive] = useState(false)
 
@@ -13,13 +13,13 @@ const Event = () => {
             </Modal>
 
             <div className="event-bg">
-                <div className="content container-fluid d-flex justify-content-center w-80e p-0">
+                <div className="event-content container-fluid d-flex justify-content-center w-80e p-0">
                     <div className="row w-100 d-flex align-items-center mt-4">
                         <div className="title col bg-secondary text-center p-3">
                             <strong className="text-white fs-1">Мероприятия</strong>
                         </div>
                         
-                        <div className="cont row m-0 mt-4" align="center">
+                        <div className="event-cont row m-0 mt-4" align="center">
                             <div className="col p-3">
                                 <div className="event-card p-3">
                                     <div className="event-card-body row">
@@ -125,7 +125,7 @@ const Event = () => {
                                     </div>
                                 </div>
                             </div>
-                            <CreateButton />
+                            <CreateButtonEvent />
                         </div>
                     </div>
                 </div>
@@ -135,4 +135,4 @@ const Event = () => {
 }
 
 
-export default Event
+export default Events

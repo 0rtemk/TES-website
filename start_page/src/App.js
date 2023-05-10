@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Main from "./components/Main";
 import Auth from "./components/Auth";
-import Event from "./components/Event";
-import AddEvent from "./components/Event/AddEvent"
+import News from "./components/News";
+import AddNew from "./components/News/AddNew";
+import Events from "./components/Events";
+import AddEvent from "./components/Events/AddEvent";
 
 
 import './App.css'
@@ -16,7 +18,9 @@ const App = () => {
         <Routes>
           <Route path="/" index element = { <Main /> } />
           <Route path="/auth" index element = {<Auth />} />
-          <Route path="/event" index element = {<Event />} />
+          <Route path="/news" index element = {<News />} />
+          <Route path="/addnew" index element = {<AddNew />} />
+          <Route path="/events" index element = {<Events />} />
           <Route path="/addevent" index element = {<AddEvent />} />
         </Routes>
       </BrowserRouter>

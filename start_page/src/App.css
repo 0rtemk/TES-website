@@ -192,7 +192,7 @@ footer {
   background: rgb(28,36,75)
 }
 
-.content{
+.event-content{
   background: #fff;
 }
 
@@ -217,7 +217,7 @@ footer {
   font-size: small;
 }
 
-.cont{
+.event-cont{
   min-width: 300px;
 }
 
@@ -234,7 +234,7 @@ footer {
 
 .forme label{
   display: block;
-  text-align: start;
+  text-align: end;
   width: 25%;
 }
 
@@ -244,12 +244,28 @@ footer {
 
 .forme input, .forme select{
   height: 42px;
-  width: 75%;
+  max-width: 75%;
+  min-width: 420px;
   cursor: pointer;
 
   background: #D9D9D9;
   border-radius: 15px;
   border-style: none;
+}
+
+.forme textarea{
+  max-width: 75%;
+  min-width: 420px;
+  cursor: pointer;
+
+  background: #D9D9D9;
+  border-radius: 15px;
+  border-style: none;
+}
+
+.new-input-file{
+  max-width: 75%;
+  min-width: 400px;
 }
 
 .createform-button{
@@ -275,4 +291,62 @@ footer {
   cursor: pointer;
 
   text-align: center;
+}
+
+
+.new-bg{
+  background: #B3C873;
+}
+
+.new-content{
+  background: #fff;
+}
+
+.new-title{
+  background: rgba(63, 63, 63, 0.7); 
+}
+
+.new-card{
+  background: #D9D9D9;
+
+  text-align: start;
+  border-radius: 20px;
+}
+
+.new-card-body{
+  min-width: 210px;
+}
+
+.new-card-img{
+  min-width: 200px;
+}
+
+.new-card-img{
+  background: #ABABAB;
+  border-radius: 20px;
+}
+
+.new-cont{
+  min-width: 230px;
+}
+
+.new-createform-button{
+  height: 60px;
+  
+  border-style: none;
+  background: #1C244B;
+  box-shadow: 7px 5px 7px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.new-create-button{
+  position: fixed;
+  background: #1C244B;
+  border-radius: 30px;
+  margin-bottom: 25px;
+  z-index: 1;
+  cursor: pointer;
+  min-width: 230px;
+  box-shadow: 7px 5px 7px rgba(0, 0, 0, 0.25);
 }
