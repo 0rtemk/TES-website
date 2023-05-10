@@ -59,7 +59,7 @@ const AddEvent = () => {
                             </div>
                             <div className="str row p-2">
                                 <label  for="picture">Изображение:</label>
-                                    <input class="input-file" type="file"  accept="image/*" id="picture" />
+                                    <input className="input-file" type="file"  accept="image/*" id="picture" />
                                     {/* <AiOutlinePicture /> */}
                             </div>
                             <button className="createform-button mt-5 w-15 mx-auto text-white fw-bold fs-3">Создать</button>
