@@ -2,22 +2,47 @@ import React, { useState, useEffect } from "react";
 import { BiX } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
+import Cookies from 'universal-cookie';
+import CryptoJS from "crypto-js";
+import { buildAbilityFor } from '../ability/caslAbility';
+import Main from './Main'
 
 const Auth = () => {
+    const secretPass = "XkhZG4fW2t2W"; //Перенести в .env
     const navigate = useNavigate();
+    const cookies = new Cookies();
+
     useEffect(() => {
-        if (localStorage.getItem("userRole")) return navigate('/');
+        if (cookies.get('cryptData')) return navigate('/');
     }, [navigate]);
 
     async function getData() {
         await axios.post("auth/login", { login: log, password: pass })
             .then(response => {
-                localStorage.setItem("userToken", JSON.stringify(response.data.token))
-                localStorage.setItem("userRole", JSON.stringify(response.data.userRole).replace(/["']/g, "").toLocaleLowerCase())
-                navigate('/') //replace this later, navifate to student LK
+                const cryptData = CryptoJS.AES.encrypt(
+                    JSON.stringify({
+                        'role': response.data.role.toLocaleLowerCase(), 
+                        'token': response.data.token
+                    }),
+                    secretPass
+                ).toString();
+
+                const data = {
+                    'email': response.data.email,
+                    'fullname': response.data.fullname,
+                    'login': response.data.login,
+                    'phone': response.data.phone,
+                    'projects': response.data.projects
+                }
+                cookies.set('cryptData', cryptData, { path: '/' })
+                cookies.set('data', data, { path: '/' })
+                buildAbilityFor(response.data.role.toLocaleLowerCase())
+
+                window.location.reload(navigate('/')); //replace this later, navifate to student LK
             })
             .catch(error => {
-                setErrorMessage(error.response.data.message)
+                if(error.response.data.message) setErrorMessage(error.response.data.message)
+                else console.log(error)
             })
     }
 
