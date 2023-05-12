@@ -5,7 +5,6 @@ import axios from "axios"
 import Cookies from 'universal-cookie';
 import CryptoJS from "crypto-js";
 import { buildAbilityFor } from '../ability/caslAbility';
-import Main from './Main'
 
 const Auth = () => {
     const secretPass = "XkhZG4fW2t2W"; //Перенести в .env

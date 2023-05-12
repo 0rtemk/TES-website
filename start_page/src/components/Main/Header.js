@@ -4,13 +4,21 @@ import { GrMenu } from "react-icons/gr"
 import { Link } from "react-router-dom";
 
 import Can from "../../ability/can";
-
+import Cookies from 'universal-cookie';
 
 const Header = () => {
+  const cookies = new Cookies();
   const [isActive, setActive] = useState("false")
 
   const handleToggle = () => {
     setActive(!isActive)
+  }
+
+  const exit = () => {
+    cookies.remove('cryptData')
+    cookies.remove('data')
+
+    window.location.reload()
   }
 
   return (
@@ -68,9 +76,10 @@ const Header = () => {
               <Can I="get" a="lk">
                 <div className={!isActive ? "nav-collapsed-items px-2" : "nav-collapsed-auth"}>
                   <hr className={!isActive ? "nav-collapsed-items hr" : "d-none"}></hr>
-                  <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+                  {/* <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
                     <div className="btn-sm text-black text-decoration-none" id="auth">Личный кабинет</div>
-                  </Link>
+                  </Link> */}
+                  <button className="btn btn-sm text-black" onClick={exit}>Выйти</button>
                 </div>
               </Can>
             </div>
