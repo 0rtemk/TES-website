@@ -49,7 +49,7 @@ class NewsController {
   }
   async deleteNews(req, res) {
     try {
-      const { news_name, news_info, news_tags } = req.body
+      const { news_name } = req.body
       const news = await News.findOneAndDelete({ news_name: news_name })
       if (!news) {
         return res
@@ -64,7 +64,7 @@ class NewsController {
   async allNews(req, res) {
     try {
       const news = await News.find()
-      res.json(news)
+      return res.json(news)
     } catch (error) {
       console.log(error)
     }

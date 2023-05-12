@@ -17,7 +17,7 @@ router.post(
   controller.updateNews
 )
 
-router.delete('/deleteNews', controller.deleteNews)
+router.post('/deleteNews', controller.deleteNews)
 
 router.get('/allNews', controller.allNews)
 
