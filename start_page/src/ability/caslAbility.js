@@ -8,6 +8,11 @@ const roleRules = (can, role, cannot) => {
     else if (role === "user") {
         can('get', 'lk')
     }
+    else if (role === "admin") {
+        can('get', 'lk')
+        can('publish', 'news')
+        can('publish', 'events')
+    }
 };
 
 export const defineRulesFor = (role) => {

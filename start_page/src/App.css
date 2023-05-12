@@ -295,6 +295,7 @@ footer {
 
 
 .new-bg{
+  min-height: 100vh;
   background: #B3C873;
 }
 
