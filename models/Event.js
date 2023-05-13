@@ -26,7 +26,11 @@ const EventSchema = new Schema({
         type: Date,
         required: true,
     },
-    event_imageURL: String
+    event_typeproject: String,
+    event_imageURL: String,
+    event_organizer: String,
+    event_stack_focus: String,
+    event_money: String,
 })
 
 module.exports = model('Event', EventSchema)

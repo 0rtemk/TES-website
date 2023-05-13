@@ -25,10 +25,10 @@ class NewsController {
   }
   async updateNews(req, res) {
     try {
-      const { news_name, news_info, news_tags } = req.body
+      const { _id, news_name, news_info, news_tags } = req.body
 
       const news = await News.findOneAndUpdate(
-        { news_name: news_name },
+        { _id: _id },
         req.body,
         {
           new: true,
@@ -39,7 +39,7 @@ class NewsController {
       if (!news) {
         return res
           .status(404)
-          .json({ msg: `Нет новостей с таким названием: ${news_name}` })
+          .json({ msg: `Нет новостей с таким идентификатором ${_id}` })
       }
 
       res.status(200).json({ news })

@@ -1,4 +1,5 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model } = require('mongoose');
+
 
 const NewsSchema = new Schema({
   news_name: {
@@ -15,6 +16,7 @@ const NewsSchema = new Schema({
     required: true,
     default: Date.now(),
   },
+  photo_news: String,
 })
 
 module.exports = model('News', NewsSchema)

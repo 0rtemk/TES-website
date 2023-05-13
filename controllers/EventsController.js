@@ -32,10 +32,10 @@ class EventsController {
     } 
     async updateEvent(req, res) {
         try {
-          const { event_name, event_info, event_direction, event_tags,  event_skills, event_start, event_finish, event_imageURL } = req.body
+          const { _id,event_name, event_info, event_direction, event_tags,  event_skills, event_start, event_finish, event_imageURL } = req.body
     
           const event = await Event.findOneAndUpdate(
-            { event_name: event_name },
+            { _id: _id },
             req.body,
             {
               new: true,
@@ -45,7 +45,7 @@ class EventsController {
           if (!event) {
             return res
               .status(404)
-              .json({ msg: `Нет мероприятия с таким названием: ${event_name}` })
+              .json({ msg: `Нет мероприятия с таким идентификатором: ${_id}` })
           }
     
           res.status(200).json({ event })
