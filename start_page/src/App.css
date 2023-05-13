@@ -194,28 +194,35 @@ footer {
 
 .event-content{
   background: #fff;
+  min-width: 430px;
+}
+
+.card-title {
+  min-width: 320px;
 }
 
 .event-card{
   background: #D9D9D9;
-  max-width: 550px;
-  min-width: 400px;
+  max-width: 85%;
+  min-width: 340px;
   text-align: start;
 }
 
-.event-card-img{
-  height: 150px;
-  max-width: 300px;
-  min-width: 200px;
+.event-card-body {
+  align-items: center!important;
+  justify-content: center!important;
 }
 
-.event-card-img{
-  background: #787d69;
+.event-card-img {
+  min-width: 320px;
 }
 
-.pe{
-  font-size: small;
+.card-img {
+  object-fit: cover;
+  width: 320px;
+  height: auto;
 }
+
 
 .event-cont{
   min-width: 300px;
@@ -320,9 +327,6 @@ footer {
 
 .new-card-img{
   min-width: 200px;
-}
-
-.new-card-img{
   background: #ABABAB;
   border-radius: 20px;
 }
