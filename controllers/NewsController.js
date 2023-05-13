@@ -49,12 +49,12 @@ class NewsController {
   }
   async deleteNews(req, res) {
     try {
-      const { news_name } = req.body
-      const news = await News.findOneAndDelete({ news_name: news_name })
+      const { _id } = req.body
+      const news = await News.findOneAndDelete({ _id: _id })
       if (!news) {
         return res
           .status(404)
-          .json({ msg: `Нет новостей с таким названием: ${news_name}` })
+          .json({ msg: `Нет новостей с таким идентификатором: ${_id}` })
       }
       return res.json({ message: 'Новость успешно удалена' })
     } catch (error) {

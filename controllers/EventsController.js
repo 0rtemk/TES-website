@@ -55,8 +55,8 @@ class EventsController {
       }
       async deleteEvent(req, res) {
         try {
-          const { event_name } = req.body
-          const event = await Event.findOneAndDelete({ event_name: event_name })
+          const { _id } = req.body
+          const event = await Event.findOneAndDelete({ _id: _id })
           if (!event) {
             return res
               .status(404)
