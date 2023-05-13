@@ -27,7 +27,7 @@ router.post(
   controller.updateEvent
 )
 
-router.delete('/deleteEvent', controller.deleteEvent)
+router.post('/deleteEvent', controller.deleteEvent)
 
 router.get('/allEvents', controller.GetAllEvents)
 

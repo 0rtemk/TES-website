@@ -10,7 +10,20 @@ class EventsController {
                   .status(400)
                   .json({ message: 'Ошибка при созданий мероприятий', errors })
             }
-            const { event_name, event_info, event_direction, event_tags,  event_skills, event_start, event_finish, event_imageURL } = req.body
+            const { 
+              event_name, 
+              event_info, 
+              event_direction, 
+              event_tags,  
+              event_skills, 
+              event_start, 
+              event_finish, 
+              event_imageURL,
+              event_typeproject,
+              event_organizer,
+              event_stack_focus,
+              event_money
+            } = req.body
             const event = new Event({
                 event_name,
                 event_info,
@@ -19,12 +32,16 @@ class EventsController {
                 event_skills,
                 event_start,
                 event_finish,
-                event_imageURL
+                event_imageURL,
+                event_typeproject,
+                event_organizer,
+                event_stack_focus,
+                event_money
             })
             await event.save()
             return res.json({ message: 'Мероприятие успешно создано' })
 
-        } catch (err) {
+        } catch (error) {
             console.log(error)
             res.status(400).json({ message: 'Create event error' })
         }
@@ -32,7 +49,21 @@ class EventsController {
     } 
     async updateEvent(req, res) {
         try {
-          const { _id,event_name, event_info, event_direction, event_tags,  event_skills, event_start, event_finish, event_imageURL } = req.body
+          const {
+              _id,
+              event_name, 
+              event_info, 
+              event_direction, 
+              event_tags,  
+              event_skills, 
+              event_start, 
+              event_finish, 
+              event_imageURL,
+              event_typeproject,
+              event_organizer,
+              event_stack_focus,
+              event_money
+            } = req.body
     
           const event = await Event.findOneAndUpdate(
             { _id: _id },
