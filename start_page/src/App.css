@@ -88,6 +88,14 @@
   width: 60%;
 }
 
+input:invalid {
+	border-color: red;
+}
+input,
+input:valid {
+	border-color: #ccc;
+}
+
 .result-check {
   padding-top: 37px;
   width: 740px;

@@ -65,15 +65,15 @@ const AddEvent = () => {
                         <form onSubmit={addEvents} className="forme fs-5 p-5" align="center">
                             <div className="str row p-2">
                                 <label htmlFor="title">Название:</label>
-                                <input type="text" id="title" />
+                                <input type="text" id="title" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="info">Информация о проекте:</label>
-                                <input type="text" id="info" />
+                                <input type="text" id="info" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="type">Тип проекта:</label>
-                                <select id="type">
+                                <select id="type" required >
                                     <option>&#160;</option>
                                     <option>Научный</option>
                                     <option>Коммерческий</option>
@@ -82,11 +82,11 @@ const AddEvent = () => {
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="tags">Теги:</label>
-                                <input type="text" id="tags" />
+                                <input type="text" id="tags" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="titlen">Название направления:</label>
-                                <select id="titlen">
+                                <select id="titlen" required >
                                     <option>&#160;</option>
                                     <option>"Веб-технологии"</option>
                                     <option>"Искусственный интеллект"</option>
@@ -95,7 +95,7 @@ const AddEvent = () => {
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="skill">Навыки мероприятия:</label>
-                                <select id="skill">
+                                <select id="skill" required >
                                     <option>&#160;</option>
                                     <option>С++</option>
                                     <option>С#</option>
@@ -105,27 +105,27 @@ const AddEvent = () => {
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="startdate">Начало проекта:</label>
-                                <input type="text" id="startdate" />
+                                <input type="text" id="startdate" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="enddate">Конец проекта:</label>
-                                <input type="text" id="enddate" />
+                                <input type="text" id="enddate" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="organizer">Организатор:</label>
-                                <input type="text" id="organizer" />
+                                <input type="text" id="organizer" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="stackFocus">Технический фокус:</label>
-                                <input type="text" id="stackFocus" />
+                                <input type="text" id="stackFocus" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="money">Призовой фонд:</label>
-                                <input type="text" id="money" />
+                                <input type="text" id="money" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="picture"> URL Изображения:</label>
-                                <input type="text" id="picture" />
+                                <input type="text" id="picture" required />
                             </div>
                             <button className="createform-button mt-5 w-15 mx-auto text-white fw-bold fs-3">Создать</button>
                         </form>

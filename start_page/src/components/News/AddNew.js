@@ -43,19 +43,19 @@ const AddNew = () => {
                         <form onSubmit={addNews} className="forme fs-5 p-5" align="center">
                             <div className="str row p-2">
                                 <label htmlFor="title">Название:</label>
-                                <input type="text" id="title" />
+                                <input type="text" id="title" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="info">Текст:</label>
-                                <textarea rows="8" id="info" />
+                                <textarea rows="8" id="info" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="tags">Хештеги:</label>
-                                <input type="text" id="tags" />
+                                <input type="text" id="tags" required />
                             </div>
                             <div className="str row p-2">
                                 <label htmlFor="picture">Изображение:</label>
-                                <input className="new-input-file" type="file" accept="image/*" id="picture" />
+                                <input className="new-input-file" type="file" accept="image/*" id="picture" required />
                             </div>
                             <button className="new-createform-button mt-5 w-15 mx-auto text-white fw-bold fs-3">Создать</button>
                         </form>
