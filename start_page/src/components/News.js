@@ -10,6 +10,7 @@ const News = () => {
     const [news, setNews] = useState('');
     const [modalActive, setModalActive] = useState(false)
 
+    const [currentID, setQurrentID] = useState('')
     const [currentName, setQurrentName] = useState('')
     const [currentInfo, setQurrentInfo] = useState('')
     const [currentTags, setQurrentTags] = useState('')
@@ -42,7 +43,12 @@ const News = () => {
         event.preventDefault()
         setModalActive(false)
 
-        await axios.post("news/updateNews", { news_name: currentName, news_info: currentInfo, news_tags: currentTags })
+        await axios.post("news/updateNews", {
+                _id: currentID,
+                news_name: currentName,
+                news_info: currentInfo,
+                news_tags: currentTags
+            })
             .then(
                 getNews()
             )
@@ -51,13 +57,13 @@ const News = () => {
             })
     }
 
-    const openModal = (name) => {
+    const openModal = (qurrentNews) => {
         setModalActive(true)
 
-        setQurrentName(name)
-        setQurrentInfo(document.getElementById(`${name}.info`).innerHTML)
-        setQurrentTags(document.getElementById(`${name}.tags`).innerHTML)
-
+        setQurrentID(qurrentNews._id)
+        setQurrentName(qurrentNews.news_name)
+        setQurrentInfo(qurrentNews.news_info)
+        setQurrentTags(qurrentNews.news_tags)
     }
 
     const getDate = (currentDate) => {
@@ -105,9 +111,9 @@ const News = () => {
                                             <div className="new-card-body col">
                                                 <div className="col new-card-dict text-black p-2">
                                                     <p className="fs-5" align="center">{currentNews.news_name}</p>
-                                                    <p className="pe " id={`${currentNews.news_name}.info`}>{currentNews.news_info}</p>
-                                                    <p className="pe " id={`${currentNews.news_name}.tags`}>{getTags(currentNews.news_tags)}</p>
-                                                    <p className="pe ">{getDate(currentNews.news_date)}</p>
+                                                    <p className="pe">{currentNews.news_info}</p>
+                                                    <p className="pe">{getTags(currentNews.news_tags)}</p>
+                                                    <p className="pe">{getDate(currentNews.news_date)}</p>
                                                 </div>
                                             </div>
                                             <div className="col new-card-img m-2" align="center">
@@ -116,7 +122,7 @@ const News = () => {
                                             <Can I='publish' a='news'>
                                                 <div className="text-center">
                                                     <button className="btn btn-danger mx-3" value={currentNews.news_name} onClick={event => deleteNews(event.target.value)}>Удалить новость</button>
-                                                    <button className="btn btn-primary mx-3" onClick={() => openModal(currentNews.news_name)}>Редактировать новость</button>
+                                                    <button className="btn btn-primary mx-3" onClick={() => openModal(currentNews)}>Редактировать новость</button>
                                                 </div>
                                             </Can>
                                         </div>
@@ -137,7 +143,7 @@ const News = () => {
                             <form onSubmit={updateNews} className="forme fs-5 p-5" align="center">
                                 <div className="str row p-2">
                                     <label htmlFor="titleModal">Название:</label>
-                                    <input type="text" id="titleModal" readonly value={currentName} />
+                                    <input type="text" id="titleModal" onChange={event => setQurrentName(event.target.value)} value={currentName} />
                                 </div>
                                 <div className="str row p-2">
                                     <label htmlFor="infoModal">Текст:</label>
